@@ -107,10 +107,12 @@ function displayOptions () {
 						var addition = parseInt(inquirerResponse.inventory_addition);
 						console.log(addition);
 						var updateQuantity = addition + res[i].stock_quantity;
-						var query = connection.query("UPDATE products SET stock_quantity = ?", [updateQuantity], "WHERE item_id = ?", [inquirerResponse.item_id], function(err, res) {
+
+					}
+
+					var query = connection.query("UPDATE products SET stock_quantity = ? WHERE item_id = ?", [updateQuantity, inquirerResponse.item_id], function(err, res) {
 							console.log(updateQuantity);
 						});
-					}
 				})
 				
 			})
@@ -153,7 +155,7 @@ function displayOptions () {
 				var stock_quantity = parseInt(inquirerResponse.stock_quantity);
 				var values = [[item_id, inquirerResponse.product_name, inquirerResponse.department_name, price, stock_quantity]];
 				var query = connection.query(sql, [values], function(err, res) {
-					console.log(err);
+					console.log(res);
 
 				})
 			})
