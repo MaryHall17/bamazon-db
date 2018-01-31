@@ -60,7 +60,7 @@ function customerBuysProduct () {
 				console.log(requested_quantity);
 				var updateQuantity = res[i].stock_quantity - requested_quantity;
 				console.log(updateQuantity);
-				var query = connection.query("UPDATE products SET stock_quantity = ?", [updateQuantity], "WHERE item_id = ?", [inquirerResponse.item_id], function(err, res) {
+				var query = connection.query("UPDATE products SET stock_quantity = ? WHERE item_id = ?", [updateQuantity, inquirerResponse.item_id], function(err, res) {
 					console.log("Table updated!");
 				});
 			} else {
