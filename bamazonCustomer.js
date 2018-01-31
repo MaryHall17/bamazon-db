@@ -63,6 +63,9 @@ function customerBuysProduct () {
 				var query = connection.query("UPDATE products SET stock_quantity = ?", [updateQuantity], "WHERE item_id = ?", [inquirerResponse.item_id], function(err, res) {
 					console.log("Table updated!");
 				});
+			} else {
+				console.log("Sorry, insufficent quantity. Please select another item. If you don't want to continue shoppng you can leave with control C.");
+				customerBuysProduct();
 			}
 		}
 	})
