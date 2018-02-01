@@ -105,13 +105,12 @@ function displayOptions () {
 					for (var i=0; i < res.length; i++) {
 						
 						var addition = parseInt(inquirerResponse.inventory_addition);
-						console.log(addition);
 						var updateQuantity = addition + res[i].stock_quantity;
 
 					}
 
 					var query = connection.query("UPDATE products SET stock_quantity = ? WHERE item_id = ?", [updateQuantity, inquirerResponse.item_id], function(err, res) {
-							console.log(updateQuantity);
+							console.log("Inventory is now " + updateQuantity);
 						});
 				})
 				
@@ -148,14 +147,13 @@ function displayOptions () {
 				name: "stock_quantity"
 			}
 		]).then(function(inquirerResponse) {
-				console.log("something happened");
 				var sql = "INSERT INTO products VALUES ?";
 				var item_id = parseInt(inquirerResponse.item_id);
 				var price = parseInt(inquirerResponse.price);
 				var stock_quantity = parseInt(inquirerResponse.stock_quantity);
 				var values = [[item_id, inquirerResponse.product_name, inquirerResponse.department_name, price, stock_quantity]];
 				var query = connection.query(sql, [values], function(err, res) {
-					console.log(res);
+					console.log("Product added!");
 
 				})
 			})

@@ -1,2 +1,2 @@
 # bamazon-db
-A command-line shopping experience, that accesses a local MySQL database to "shop"
+A command-line shopping experience, that accesses a local MySQL database to "shop". Use the command node bamazonCustomer.js to shop, and access managerial functions such as viewing items, checking inventory, adding inventory, and adding a new product through node bamazonManager.js. Want to learn more? Check out this link to a video I made: https://drive.google.com/drive/folders/1vmWjj014DDZfYx1O7H5HUW_rVjzY7CJl?usp=sharing

@@ -57,11 +57,9 @@ function customerBuysProduct () {
 			if (inquirerResponse.requested_quantity <= res[i].stock_quantity) {
 				console.log("Your total for " + res[i].product_name + " at quantity: " + inquirerResponse.requested_quantity + " is " + res[i].price * inquirerResponse.requested_quantity + " \nThrough our super shady predictive analytics, we have already billed you at your preferred payment method. Thanks for choosing Bamazon!");
 				var requested_quantity = parseInt(inquirerResponse.requested_quantity);
-				console.log(requested_quantity);
 				var updateQuantity = res[i].stock_quantity - requested_quantity;
-				console.log(updateQuantity);
 				var query = connection.query("UPDATE products SET stock_quantity = ? WHERE item_id = ?", [updateQuantity, inquirerResponse.item_id], function(err, res) {
-					console.log("Table updated!");
+					console.log("Come again soon!");
 				});
 			} else {
 				console.log("Sorry, insufficent quantity. Please select another item. If you don't want to continue shoppng you can leave with control C.");
